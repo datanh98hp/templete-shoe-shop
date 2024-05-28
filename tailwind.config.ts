@@ -12,7 +12,12 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "banner-image": "url('/banners/banner-bg.jpg') ",
       },
+      animation: {
+        'scaleX': 'scale-x 0.4s ease-in-out',
+       
+      }
     },
   },
   plugins: [],
