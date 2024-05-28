@@ -126,7 +126,9 @@ export default function ShopLayout({
           </div>
         </div>
       </div>
-      <DealOfTheWeek />
+      <div className="md:flex flex-col w-screen items-center ">
+        <DealOfTheWeek />
+      </div>
     </>
   );
 }

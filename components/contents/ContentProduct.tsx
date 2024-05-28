@@ -5,6 +5,7 @@ import { CiShoppingBasket } from "react-icons/ci";
 import ReviewProductContainer from "@/components/contents/Product/ReviewProductContainer";
 
 export default function ContentProduct() {
+  const [quantity, setQuantity] = useState(1);
   return (
     <div className=" ">
       <p className="text-2xl font-semibold">Faded SkyBlu Denim Jeans</p>
@@ -27,8 +28,8 @@ export default function ContentProduct() {
       <div className="flex flex-col md:mt-20">
         <input
           className="w-[4rem] h-8 border outline-none rounded-md border-gray-400 px-2"
-          value={1}
-          onChange={(e) => console.log(e.target.value)}
+          value={quantity}
+          onChange={(e) => setQuantity(+e.target.value)}
           type="number"
         />
       </div>

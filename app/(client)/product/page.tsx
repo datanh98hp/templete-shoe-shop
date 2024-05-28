@@ -6,7 +6,7 @@ export default function Product() {
   return (
     <div className="md:flex flex-col w-screen items-center ">
       <div className="md:flex mx-4 md:my-32 my-20 gap-2 justify-between overflow-x-auto">
-        <div className="md:w-[35rem] md:p-0">
+        <div className="md:w-[35rem] md:h-[35rem] md:p-0">
           <SwiperProduct />
         </div>
 
