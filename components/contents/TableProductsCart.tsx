@@ -16,9 +16,9 @@ export default function TableProductsCart() {
     return null;
   }
   return (
-    <section className="flex flex-col justify-center antialiased bg-gray-100 text-gray-600 p-4">
+    <section className="flex flex-col justify-center antialiased text-gray-600 p-5 my-12">
       <div className="">
-        <div className="w-full max-w-6xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+        <div className="w-full max-w-6xl mx-auto bg-white shadow-lg rounded-sm  border-gray-200 p-2">
           <header className="px-5 py-4 border-b border-gray-100">
             <h2 className="font-semibold text-gray-800">List item cart</h2>
           </header>
@@ -133,8 +133,12 @@ export default function TableProductsCart() {
                     </td>
                   </tr>
                   <tr>
-                    <td colSpan={3}></td>
-                    <td colSpan={1} className="my-8">
+                    <td colSpan={3}>
+                      <button className="border p-2 hover:font-semibold hover:border-orange-300 mt-6">
+                        Update Cart
+                      </button>
+                    </td>
+                    <td colSpan={1} className="my-8 flex gap-3">
                       <button className="bg-gradient-to-r from-orange-300 to-orange-600 text-white p-2 w-full mt-6">
                         Checkout
                       </button>

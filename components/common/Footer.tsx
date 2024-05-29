@@ -4,9 +4,9 @@ import React from 'react'
 import { CiFacebook } from 'react-icons/ci';
 import { FaTiktok } from 'react-icons/fa';
 import { FiLink } from 'react-icons/fi';
-import EmailInputFooter from '../ui/EmailInputFooter';
+import EmailInputFooter from '@/components/ui/EmailInputFooter';
 
-export default function () {
+export default function footer() {
   return (
     <div className="footer  w-screen bottom-0 h-fit bg-[#222222]">
       <div className="md:p-24 p-3 pt-20 md:flex gap-4">

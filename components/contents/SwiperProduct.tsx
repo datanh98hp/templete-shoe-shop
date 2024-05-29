@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Image from "next/image";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -20,10 +20,12 @@ export default function App() {
   return (
     <>
       <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
+        style={
+          {
+            // "--swiper-navigation-color": "#fff",
+            // "--swiper-pagination-color": "#fff",
+          }
+        }
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
@@ -31,38 +33,129 @@ export default function App() {
         className="mySwiper2"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-1.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-2.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-3.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-4.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-5.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-6.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-7.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-8.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-9.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-10.jpg"
+          />
         </SwiperSlide>
       </Swiper>
       <Swiper
-        onSwiper={setThumbsSwiper}
+        onSwiper={setThumbsSwiper as any}
+        loop={true}
         spaceBetween={10}
         slidesPerView={4}
         freeMode={true}
@@ -71,34 +164,124 @@ export default function App() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-1.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-2.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-3.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-4.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-5.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-6.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-7.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-8.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-9.jpg"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+          <Image
+            width={40}
+            height={40}
+            alt={"image"}
+            sizes="100vh"
+            style={{ width: "100%", height: "fit-content" }}
+            priority={true}
+            className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+            src="https://swiperjs.com/demos/images/nature-10.jpg"
+          />
         </SwiperSlide>
       </Swiper>
     </>

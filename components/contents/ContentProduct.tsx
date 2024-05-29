@@ -3,6 +3,7 @@ import clsx from "clsx";
 import React, { useState } from "react";
 import { CiShoppingBasket } from "react-icons/ci";
 import ReviewProductContainer from "@/components/contents/Product/ReviewProductContainer";
+import { BiHeart } from "react-icons/bi";
 
 export default function ContentProduct() {
   const [quantity, setQuantity] = useState(1);
@@ -37,8 +38,11 @@ export default function ContentProduct() {
         <button className="py-2 px-6 my-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-md hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-400">
           Add to cart
         </button>
-        <button className=" p-3 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
-          <CiShoppingBasket size={25} className="" />
+        <button className="border border-orange-300  p-2 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
+          <CiShoppingBasket size={25} className=""  />  
+        </button>
+        <button className="border border-orange-300 p-2 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
+          <BiHeart size={25} className="" />
         </button>
       </div>
     </div>
