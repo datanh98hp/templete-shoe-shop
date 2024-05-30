@@ -145,7 +145,7 @@ export function ReviewClientItem({
           </p>
         </div>
       </div>
-      <div className="text-sm my-3">{content}</div>
+      <div className="text-sm my-3 text-gray-500">{content}</div>
     </div>
   );
 }
@@ -158,9 +158,9 @@ export function FormReviewProduct() {
     <div>
       <div>
         <h5 className="text-xl font-semibold">Add a review</h5>
-        <form className="">
+        <form className="text-sm">
           <div className="my-2 mr-6 flex items-center">
-            <p className="mr-2">Youre rate </p>
+            <p className="mr-3">Youre rate </p>
             <div>
               {[...Array(5)].map((star, index) => {
                 const currentRating = index + 1;
@@ -193,7 +193,7 @@ export function FormReviewProduct() {
             </div>
           </div>
           <div className="my-2 mr-6 flex items-center">
-            <label className="mr-2 w-[5rem]" htmlFor="fullname">
+            <label className="mr-2 w-[6rem]" htmlFor="fullname">
               Fullname
             </label>
             <input
@@ -204,7 +204,7 @@ export function FormReviewProduct() {
             />
           </div>
           <div className="my-2 mr-6 flex items-center">
-            <label className="mr-2 w-[5rem]" htmlFor="email">
+            <label className="mr-2 w-[6rem]" htmlFor="email">
               Email
             </label>
             <input
@@ -215,19 +215,21 @@ export function FormReviewProduct() {
             />
           </div>
           <div className="my-2 mr-6 flex items-start">
-            <label className="mr-2 w-[5rem]" htmlFor="message">
+            <label className="mr-2 w-[6rem]" htmlFor="message">
               Message
             </label>
             <textarea
               id="message"
               rows={5}
               cols={10}
-              placeholder="Enter your email"
+              placeholder="Enter your message"
               className=" border-[0.05rem] resize-none w-full outline-none p-2 "
             />
           </div>
           <div className="my-2 mr-6 flex flex-row-reverse">
-              <button className="p-2 mt-4 bg-orange-300 text-white">Submit now</button>
+            <button className="p-2 mt-4 bg-orange-300 text-white">
+              Submit now
+            </button>
           </div>
         </form>
       </div>

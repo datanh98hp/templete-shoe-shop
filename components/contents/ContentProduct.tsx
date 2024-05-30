@@ -30,6 +30,7 @@ export default function ContentProduct() {
         <input
           className="w-[4rem] h-8 border outline-none rounded-md border-gray-400 px-2"
           value={quantity}
+          min={1}
           onChange={(e) => setQuantity(+e.target.value)}
           type="number"
         />
@@ -38,9 +39,9 @@ export default function ContentProduct() {
         <button className="py-2 px-6 my-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-md hover:bg-gradient-to-r hover:from-orange-600 hover:to-orange-400">
           Add to cart
         </button>
-        <button className="border border-orange-300  p-2 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
+        {/* <button className="border border-orange-300  p-2 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
           <CiShoppingBasket size={25} className=""  />  
-        </button>
+        </button> */}
         <button className="border border-orange-300 p-2 rounded-full outline-none hover:bg-gradient-to-tr hover:from-orange-400 hover:to-orange-600 hover:text-white text-black  ">
           <BiHeart size={25} className="" />
         </button>

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // output: 'export',
     images: {
         remotePatterns: [
             {   
@@ -20,6 +21,11 @@ const nextConfig = {
             {
                 protocol: "https",
                 hostname: "stcd02206177151.cloud.edgevnpay.vn",
+                pathname: "/**",
+            },
+            {
+                protocol: "http",
+                hostname: "localhost",
                 pathname: "/**",
             }
         ],

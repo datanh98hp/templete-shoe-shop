@@ -140,7 +140,7 @@ export default function ConfirmOrderContent() {
           </div>
           <div className="text-center my-2 flex justify-center underline text-orange-400">
             <Link href="/" className="flex justify-center items-center gap-2 ">
-              <IoReturnDownBackOutline className="text-2xl " />{" "}
+              <IoReturnDownBackOutline className="text-2xl mr-2"/>
               <span>Return Home pageReturn Home page</span>
             </Link>
           </div>

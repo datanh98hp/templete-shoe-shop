@@ -33,7 +33,7 @@ export default function FormLogin() {
           Login
         </button>
       </div>
-      <div className="text-center mt-5 text-gray-500">
+      <div className="text-center my-5 text-gray-500">
         <Link href="/forgot-password">Forgot password?</Link>
       </div>
     </form>
