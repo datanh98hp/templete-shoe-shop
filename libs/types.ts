@@ -1,10 +1,12 @@
 export interface ProductType {
     id: number;
-    name: string;
-    items: ProductItems[];
-    original_price: number;
-    category: CategoryType;
-    product_images: ProductImage[]
+    name: string ;
+    slug: string ;
+    items: ProductItems[] ;
+    original_price: number ;
+    category: CategoryType ;
+    product_images: ProductImage[];
+    promotion_category: PromotionCategory;
     // price: number;
     // discount: number;
     // rating: number;

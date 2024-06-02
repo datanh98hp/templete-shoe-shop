@@ -6,8 +6,10 @@ import clsx from "clsx";
 import Link from "next/link";
 
 export interface ProductProps {
+  id: string;
   src: string;
   name: string;
+  slug:string;
   price: number;
   discount: number | null;
   rating: number;
@@ -17,8 +19,10 @@ export interface ProductProps {
   eventAddToFavorite?: () => void;
 }
 export default function ProductItem({
+  id,
   src,
   name,
+  slug,
   price,
   discount,
   rating,
@@ -42,7 +46,7 @@ export default function ProductItem({
         src={src}
         alt={name}
         sizes="100vh"
-        style={{ width: "100vw", height: "fit-content" }}
+        style={{ width: "auto", height: "auto" }}
         priority={true}
         className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
       />
@@ -67,7 +71,7 @@ export default function ProductItem({
       )}
 
       <div className="">
-        <Link href={`/product`} className="">
+        <Link href={`/product/${id}/${slug}`} className="">
           <p className="md:w-[15rem] max-w-sm uppercase font-semibold truncate hover:text-balance">
             {name}
           </p>

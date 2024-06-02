@@ -1,5 +1,8 @@
 "use client";
+import { useCartStore } from "@/store/cart.store";
+import { useFilterStore } from "@/store/filter-product.store";
 import clsx from "clsx";
+import Link from "next/link";
 import React from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 export default function Dropdown({
@@ -12,6 +15,13 @@ export default function Dropdown({
   absolute: boolean;
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { state, setStateFilter } = useFilterStore();
+  const handleClickCategory = (id_category: number) => {
+    // set filter category in store
+    setStateFilter({ product_cate_id: id_category });
+    // console.log(state);
+    console.log(id_category);
+  };
   return (
     <div className="ml-1 border-b w-full">
       <button
@@ -40,7 +50,12 @@ export default function Dropdown({
         >
           {list?.map((item, i) => (
             <div key={item.id} className="ml-4 p-3 border-b">
-              <h3 className="font-light">{item.name}</h3>
+              <button
+                className="font-light"
+                onClick={() => handleClickCategory(item.id)}
+              >
+                {item.category_name}
+              </button>
             </div>
           ))}
         </div>

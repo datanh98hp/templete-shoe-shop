@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useCartStore } from "@/store/cart-store";
+import { useCartStore } from "@/store/cart.store";
 export default function TableProductsCart() {
   const { cart, addToCart } = useCartStore((state: any) => ({
     cart: state.cart,

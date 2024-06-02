@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MdOutlinePlaylistRemove } from "react-icons/md";
 import Link from "next/link";
-import { useCartStore } from "@/store/cart-store";
+import { useCartStore } from "@/store/cart.store";
 export default function HeaderNavigation() {
   const [isOpenMobile, setOpenMobile] = useState(false);
   const { cart } = useCartStore((state: any) => ({

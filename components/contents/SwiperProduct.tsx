@@ -14,7 +14,11 @@ import "./swiper_product.css";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
-export default function App() {
+export default function SwiperProduct({
+  listImage,
+}: {
+  listImage?: Array<{ path: string } | null>;
+}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -32,7 +36,27 @@ export default function App() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
+        {listImage &&
+          listImage?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                width={40}
+                height={40}
+                alt={"image"}
+                sizes="100vh"
+                style={{ width: "100%", height: "40rem" }}
+                priority={true}
+                className="object-fit md:h-[20rem] h-[20rem] md:min-h-0 overflow-hidden"
+                src={`${" http://localhost:8001/"}` + item?.path}
+              />
+            </SwiperSlide>
+          ))}
+        {listImage?.length === 0 && (
+          <>
+            <SwiperSlide>have not images</SwiperSlide>
+          </>
+        )}
+        {/* <SwiperSlide>
           <Image
             width={40}
             height={40}
@@ -151,7 +175,7 @@ export default function App() {
             className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
             src="https://swiperjs.com/demos/images/nature-10.jpg"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper as any}
@@ -163,7 +187,27 @@ export default function App() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        <SwiperSlide>
+        {listImage &&
+          listImage?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Image
+                width={40}
+                height={40}
+                alt={item?.path ? item?.path : "image"}
+                sizes="100vh"
+                style={{ width: "100%", height: "10rem" }}
+                priority={true}
+                className="object-fit md:h-[20rem] h-[20rem] md:min-h-0 overflow-hidden"
+                src={`${" http://localhost:8001/"}` + item?.path}
+              />
+            </SwiperSlide>
+          ))}
+        {listImage?.length === 0 && (
+          <>
+            <SwiperSlide>have not images</SwiperSlide>
+          </>
+        )}
+        {/* 
           <Image
             width={40}
             height={40}
@@ -282,7 +326,7 @@ export default function App() {
             className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
             src="https://swiperjs.com/demos/images/nature-10.jpg"
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </>
   );
