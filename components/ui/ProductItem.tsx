@@ -48,7 +48,7 @@ export default function ProductItem({
         sizes="100vh"
         style={{ width: "auto", height: "auto" }}
         priority={true}
-        className="object-fit md:h-[20rem] h-full md:min-h-0 overflow-hidden"
+        className="object-fit md:h-[20rem] h-full w-auto md:min-h-0 overflow-hidden"
       />
       <div
         className={clsx(
@@ -99,7 +99,7 @@ export default function ProductItem({
           </button>
           <span className="text-md  font-semibold my-1 text-right flex flex-row gap-2 md:ml-20 ml-[15rem]">
             {Array.from({ length: rating }, (_, i) => (
-              <FaStar size={15} color="orange" />
+              <FaStar key={i} size={15} color="orange" />
             ))}
           </span>
         </div>

@@ -7,6 +7,7 @@ interface FilterProductProps {
     items_per_page?: string | number | undefined;
     product_cate_id?: string | number | undefined;
     sortBy?: string;
+    [key: string]: any;
 }
 export interface StoreFilterState {
     state: FilterProductProps,

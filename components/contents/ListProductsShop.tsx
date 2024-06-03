@@ -29,7 +29,7 @@ export default function ListProductsShop() {
   const { data, error, isLoading } = useSWR(
     `/product?page=${page}&items_per_page=${
       items_per_page || ""
-    }&sortBy=${sortBy}&product_cate_id=${product_cate_id || ""}`,
+    }&sortBy=${sortBy}&product_cate_id=${product_cate_id || ""}&keyword=${keyword || ""}`,
     {
       revalidateOnFocus: false,
       dedupingInterval: 2000,
@@ -55,7 +55,7 @@ export default function ListProductsShop() {
     addToCart: state.addToCart,
   }));
   return (
-    <div className="max-w-fit flex w-full flex-wrap  border md:gap-5">
+    <div className="max-w-fit flex w-full flex-wrap md:gap-4">
       {isLoading && (
         <div className="w-full h-full h-50 w-50 flex justify-center">
           <span>Loading...</span>
@@ -65,9 +65,9 @@ export default function ListProductsShop() {
 
       {list?.map((product: ProductType) => (
         <ProductItem
+          key={product.id}
           id={`${product.id}`}
           slug={product.slug}
-          key={product.id}
           src={
             product.product_images[0]?.path
               ? `${" http://localhost:8001/"}` + product.product_images[0]?.path
