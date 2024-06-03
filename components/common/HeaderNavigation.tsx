@@ -24,8 +24,8 @@ export default function HeaderNavigation() {
           <Image
             src="/imgs/logo.jpg"
             alt="logo"
-            width={50}
-            height={50}
+            width={45}
+            height={45}
             priority={true}
             className="rounded-full"
           />

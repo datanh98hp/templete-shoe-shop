@@ -1,15 +1,15 @@
 "use client";
-import React from "react";
-import { CiHeart, CiShoppingBasket, CiStar } from "react-icons/ci";
-import Image from "next/image";
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
+import { CiHeart } from "react-icons/ci";
+import { FaStar } from "react-icons/fa";
 
 export interface ProductProps {
   id: string;
   src: string;
   name: string;
-  slug:string;
+  slug: string;
   price: number;
   discount: number | null;
   rating: number;
@@ -36,7 +36,7 @@ export default function ProductItem({
   return (
     <div
       className={clsx(
-        "product_item cursor-pointer md:w-[17rem] w-full hover:shadow-md hover:shadow-gray-300 my-2 flex flex-col md:justify-start  max-h-[28rem] max-w-[28rem] p-3 border relative",
+        "product_item cursor-pointer  w-full hover:shadow-md hover:shadow-gray-300 my-2 flex flex-col justify-between md:justify-start max-h-[28rem] md:max-w-[20rem] p-3 border relative",
         className
       )}
     >
@@ -52,7 +52,7 @@ export default function ProductItem({
       />
       <div
         className={clsx(
-          "absolute w-full md:top-28 top-36 right-0 p-4 bg-opacity-30 bg-white",
+          "absolute w-full md:top-36 top-36 right-0 p-4 bg-opacity-30 bg-white",
           status && status > 0 ? "hidden" : "block"
         )}
       >
@@ -94,12 +94,13 @@ export default function ProductItem({
           </p>
         </div>
         <div className="action flex flex-row items-center justify-between">
-          <button className="bg-[#ec2d0b]  text-white p-2 rounded-full flex gap-2">
+          <button className="bg-[#ec2d0b]  text-white p-2 rounded-full">
             <CiHeart size={20} />
           </button>
-          <span className="text-md grow font-semibold my-1 text-right flex flex-row gap-2 md:ml-20 ml-[15rem]">
-            {rating}
-            <CiStar size={20} color="orange" />
+          <span className="text-md  font-semibold my-1 text-right flex flex-row gap-2 md:ml-20 ml-[15rem]">
+            {Array.from({ length: rating }, (_, i) => (
+              <FaStar size={15} color="orange" />
+            ))}
           </span>
         </div>
       </div>

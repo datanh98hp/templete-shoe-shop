@@ -38,7 +38,7 @@ export default function ShopPage() {
   // });
 
   return (
-    <div className=" flex flex-row flex-wrap justify-center gap-1 md:justify-start ">
+    <div className="w-full flex flex-row flex-wrap justify-between gap-1 md:justify-start ">
       <ListProductsShop />
     </div>
   );

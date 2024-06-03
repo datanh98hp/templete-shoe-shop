@@ -1,8 +1,7 @@
 "use client";
-import { useCartStore } from "@/store/cart.store";
 import { useFilterStore } from "@/store/filter-product.store";
 import clsx from "clsx";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 export default function Dropdown({
@@ -16,11 +15,16 @@ export default function Dropdown({
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const { state, setStateFilter } = useFilterStore();
+  const { page, items_per_page, sortBy, product_cate_id } = state;
+  const route = useRouter();
   const handleClickCategory = (id_category: number) => {
     // set filter category in store
-    setStateFilter({ product_cate_id: id_category });
-    // console.log(state);
-    console.log(id_category);
+    setStateFilter({ ...state, product_cate_id: id_category });
+    route.push(
+      `/shop?page=${page}?items_per_page=${
+        items_per_page || ""
+      }&sortBy=${sortBy}&product_cate_id=${id_category}`
+    );
   };
   return (
     <div className="ml-1 border-b w-full">
@@ -28,8 +32,8 @@ export default function Dropdown({
         onClick={() => setIsOpen((prev) => !prev)}
         className={clsx(
           absolute ? "relative" : "",
-          isOpen ? "font-semibold" : "",
-          "p-3 flex justify-between items-center text-lg tracking-wide border-4 border-transparent active:text-white duration-300 border-b font-light w-full"
+          isOpen ? "ext-orange-500" : "",
+          "p-3 flex justify-between items-center text-lg tracking-wide border-4 border-transparent active:text-white duration-300 border-b  w-full font-medium"
         )}
       >
         <span className="">{tile}</span>
@@ -51,7 +55,10 @@ export default function Dropdown({
           {list?.map((item, i) => (
             <div key={item.id} className="ml-4 p-3 border-b">
               <button
-                className="font-light"
+                className={clsx(
+                  "font-medium",
+                  product_cate_id === item.id ? "text-orange-500" : ""
+                )}
                 onClick={() => handleClickCategory(item.id)}
               >
                 {item.category_name}

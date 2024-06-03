@@ -26,10 +26,10 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   return (
-      <div className="w-screen md:flex md:flex-col">
-        <HeaderNavigation />
-        {children}
-        <Footer />
-      </div>
+    <div className="">
+      <HeaderNavigation />
+      {children}
+      {/* <Footer /> */}
+    </div>
   );
 }

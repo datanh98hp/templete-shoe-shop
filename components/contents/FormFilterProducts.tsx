@@ -12,9 +12,8 @@ export default function FormFilterProducts() {
     console.log("submitFilterData");
   };
   return (
-    <form className="flex flex-row md:justify-end  justify-start flex-wrap gap-2 bg-[#828bb3] p-3 w-full">
+    <form className="max-w-[65rem] flex flex-row md:justify-end  justify-start flex-wrap gap-2 bg-[#828bb3] p-3">
       <div className="flex gap-2 items-center">
-        
         <select
           className="border p-2 w-full outline-none text-gray-500 min-w-fit"
           defaultValue={"Price"}

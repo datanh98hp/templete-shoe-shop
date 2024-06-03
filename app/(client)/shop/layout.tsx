@@ -13,80 +13,6 @@ export const metadata: Metadata = {
   title: "Shop",
   description: "Dat anh Shoe - list products",
 };
-const data_cate = [
-  {
-    id: 1,
-    name: "Sneakers",
-    sub: [
-      {
-        id: 1,
-        name: "Sneakers",
-      },
-      {
-        id: 2,
-        name: "Sneakers",
-      },
-      {
-        id: 3,
-        name: "Sneakers",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Sneakers",
-    sub: [
-      {
-        id: 1,
-        name: "Sneakers",
-      },
-      {
-        id: 2,
-        name: "Sneakers",
-      },
-      {
-        id: 3,
-        name: "Sneakers",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Sneakers",
-    sub: [
-      {
-        id: 1,
-        name: "Sneakers",
-      },
-      {
-        id: 2,
-        name: "Sneakers",
-      },
-      {
-        id: 3,
-        name: "Sneakers",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Sneakers",
-    sub: [
-      {
-        id: 1,
-        name: "Sneakers",
-      },
-      {
-        id: 2,
-        name: "Sneakers",
-      },
-      {
-        id: 3,
-        name: "Sneakers",
-      },
-    ],
-  },
-];
 ///get category product
 interface CategoryDataProp {
   id: number;
@@ -123,6 +49,7 @@ export default async function ShopLayout({
           <div className="">
             {data?.map((item: CategoryDataProp, index: number) => {
               if (item.child_categories.length > 0) {
+                // if (item.parent_category === null) {
                 return (
                   <Dropdown
                     key={index}
@@ -131,16 +58,23 @@ export default async function ShopLayout({
                     list={item.child_categories}
                   />
                 );
+                // }
               } else {
-                return (
-                  <CategoryShopItem key={index} title={item.category_name} id={item.id} />
-                );
+                if (item.parent_category === null) {
+                  return (
+                    <CategoryShopItem
+                      key={index}
+                      title={item.category_name}
+                      id={item.id}
+                    />
+                  );
+                }
               }
             })}
           </div>
         </div>
 
-        <div className="md:w-[51.5rem]">
+        <div className="md:w-[63rem]">
           <FormFilterProducts />
           {/* list product */}
           <>{children}</>
