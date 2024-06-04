@@ -20,6 +20,9 @@ export default function Dropdown({
   const handleClickCategory = (id_category: number) => {
     // set filter category in store
     setStateFilter({ ...state, product_cate_id: id_category });
+    //save params to localstore
+    localStorage.removeItem("searchParams");
+    localStorage.setItem("searchParams", JSON.stringify(state));
     route.push(
       `/shop?page=${page}?items_per_page=${
         items_per_page || ""

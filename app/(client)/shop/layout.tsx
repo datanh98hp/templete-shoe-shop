@@ -79,19 +79,6 @@ export default async function ShopLayout({
           {/* list product */}
           <>{children}</>
 
-          {/* pagination */}
-          <div className="flex justify-center p-2">
-            <div className="mx-3 px-3 py-1 rounded-full">{`<`}</div>
-            {Array.from({ length: 7 }).map((item, index) => (
-              <div
-                key={index}
-                className="mx-3 shadow-md px-3 py-1 rounded-full"
-              >
-                {index + 1}
-              </div>
-            ))}
-            <div className="mx-3 shadow-md px-3 py-1 rounded-full">{`>`}</div>
-          </div>
         </div>
       </div>
       <div className="md:flex flex-col w-screen items-center ">

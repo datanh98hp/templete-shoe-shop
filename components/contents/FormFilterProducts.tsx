@@ -2,6 +2,7 @@
 import { useFilterStore } from "@/store/filter-product.store";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { TbFilter, TbFilterCancel } from "react-icons/tb";
 
 // interface FiltersProps {
 //   onChange?: () => void;
@@ -19,6 +20,9 @@ export default function FormFilterProducts() {
   const router = useRouter();
   const submitFilterData = (e: any) => {
     e.preventDefault();
+    //save params to localstore
+    localStorage.removeItem("searchParams");
+    localStorage.setItem("searchParams", JSON.stringify(state));
     setStateFilter({
       ...state,
       sortBy: _sortBy,
@@ -34,19 +38,7 @@ export default function FormFilterProducts() {
       }`
     );
   };
-  const eventChangeKeyword = (e: any) => {
-    if (_keyword) {
-      setKeyword(e.target.value);
-      setStateFilter({
-        ...state,
-        sortBy: _sortBy,
-        brand: _brand,
-        keyword: _keyword,
-      });
-    } else {
-      setKeyword(_keyword);
-    }
-  };
+
   useEffect(() => {
     setKeyword(_keyword);
   }, [_keyword]);
@@ -94,8 +86,15 @@ export default function FormFilterProducts() {
           <option className="p-4 my-2"> Decrease </option>
         </select>
       </div>
-      <div className=" bg-white p-2 ">
-        <button onClick={submitFilterData}>Filter</button>
+      <div className=" bg-white p-2 flex items-center ">
+        <button onClick={() => router.push("/shop")}>
+          <TbFilterCancel size={20} />
+        </button>
+      </div>
+      <div className=" bg-white p-2 flex items-center">
+        <button onClick={submitFilterData}>
+          <TbFilter size={20} />
+        </button>
       </div>
     </form>
   );

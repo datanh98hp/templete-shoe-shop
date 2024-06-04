@@ -36,7 +36,7 @@ export default function ProductItem({
   return (
     <div
       className={clsx(
-        "product_item cursor-pointer  w-full hover:shadow-md hover:shadow-gray-300 my-2 flex flex-col justify-between md:justify-start max-h-[28rem] md:max-w-[20rem] p-3 border relative",
+        "product_item cursor-pointer  w-full hover:shadow-md hover:shadow-gray-300 flex flex-col justify-between md:justify-start max-h-[28rem] md:max-w-[20rem] p-2 mt-1 border relative",
         className
       )}
     >
@@ -48,7 +48,7 @@ export default function ProductItem({
         sizes="100vh"
         style={{ width: "auto", height: "auto" }}
         priority={true}
-        className="object-fit md:h-[20rem] h-full w-auto md:min-h-0 overflow-hidden"
+        className="object-fit md:h-[15rem] h-full md:min-h-0 overflow-hidden"
       />
       <div
         className={clsx(
