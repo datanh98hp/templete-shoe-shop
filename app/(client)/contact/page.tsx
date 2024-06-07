@@ -1,11 +1,34 @@
 import BannerCommon from "@/components/common/BannerCommon";
 import FormContact from "@/components/contents/FormContact";
+import axiosClient from "@/libs/axios";
+import Link from "next/link";
+import { BsInstagram } from "react-icons/bs";
 import { CiMail } from "react-icons/ci";
+import { FaFacebook, FaTiktok } from "react-icons/fa6";
 import { IoHome } from "react-icons/io5";
 import { LuPhoneCall } from "react-icons/lu";
-import Link from "next/link";
-import { FaFacebook, FaGoogle, FaTiktok } from "react-icons/fa6";
-export default function Contact() {
+
+// 
+
+export async function getAbout(): Promise<any> {
+  try {
+    const res = await axiosClient.get("/about");
+
+    const data = res.data;
+    return data;
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+}
+
+export default async function Contact() {
+  const data = await getAbout();
+
+  const address = data.address;
+  const city = address.split(",")[2].trim();
+
   return (
     <div className="">
       <BannerCommon title="Contact Us" />
@@ -27,23 +50,25 @@ export default function Contact() {
             <div className="flex flex-row gap-6 items-center p-2 my-4">
               <IoHome size={30} color="orange" />
               <div>
-                <p className="font-semibold">Quốc Tuấn, An Lão</p>
-                <p>Hải Phòng</p>
+                <p className="font-semibold">{`${address
+                  .split(",")[0]
+                  .trim()} ${address.split(",")[1].trim()}`}</p>
+                <p>{city}</p>
               </div>
             </div>
 
             <div className="flex flex-row gap-6 items-center md:p-2 my-4">
               <LuPhoneCall size={30} color="orange" />
               <div>
-                <p className="font-semibold">+84 123 456 789s</p>
+                <p className="font-semibold">{data.phone}</p>
                 <p className="">Zalo / Skype</p>
               </div>
             </div>
             <div className="flex flex-row gap-6 items-center md:p-2 p-2 my-4 ">
               <CiMail size={30} color="orange" />
               <div>
-                <p className="font-semibold">dat198hp@gmail.com</p>
-                <p className="">datanh98hp@gmail.com</p>
+                <p className="font-semibold">{data.email}</p>
+                <p className="">sub:datanh98hp@gmail.com</p>
               </div>
             </div>
           </div>
@@ -54,14 +79,20 @@ export default function Contact() {
             <div className="social my-4">
               <p className="text-black font-bold">Follow Us</p>
               <div className="flex flex-row gap-4 items-center justify-center mt-2">
-                <Link href="#">
+                <Link href={data.fb ? data.fb : "#"}>
                   <FaFacebook size={30} className="hover:text-blue-600" />
                 </Link>
-                <Link href="#">
+                <Link href={data.tiktok ? data.tiktok : "#"}>
                   <FaTiktok size={30} className="hover:text-gray-600" />
                 </Link>
-                <Link href="#">
-                  <FaGoogle size={30} className="hover:text-red-600" />
+                <Link
+                  href={
+                    data.instagram
+                      ? "https://www.facebook.com/datdodev43/"
+                      : "#"
+                  }
+                >
+                  <BsInstagram size={30} className="hover:text-red-500" />
                 </Link>
               </div>
             </div>

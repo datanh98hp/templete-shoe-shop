@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+    env: {
+        BASE_API_URI: process.env.BASE_API_URI
+    },
     // output: 'export',
     images: {
         remotePatterns: [
-            {   
+            {
                 protocol: "https",
                 hostname: "fakestoreapi.com",
                 pathname: "/**",

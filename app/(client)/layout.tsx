@@ -29,7 +29,7 @@ export default function ClientLayout({
     <div className="">
       <HeaderNavigation />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import ProductsContainer from "./ProductsContainer";
 import Image from "next/image";
 import ProductSwiperItem from "../ui/ProductSwiperItem";
-export default function DealBanner() {
+export default function DealBanner({ yearEnd, monthEnd, dayEnd }: any) {
   return (
     <div className="min-h-full w-full py-3">
       <div className="md:flex flex-row">
@@ -17,7 +17,11 @@ export default function DealBanner() {
           <p className="text-white text-center ">
             Who are in extremely love with eco friendly system.
           </p>
-          <CountDownTime />
+          <CountDownTime
+            yearEnd={yearEnd}
+            monthEnd={monthEnd}
+            dayEnd={dayEnd}
+          />
         </div>
 
         <div className="w-full flex justify-center items-center ">

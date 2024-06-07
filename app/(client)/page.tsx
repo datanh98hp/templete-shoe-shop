@@ -7,6 +7,7 @@ import LatestProducts from "@/components/contents/LatestProducts";
 import ListBrand from "@/components/ui/ListBrand";
 
 export default function Home() {
+  const testData = {};
   return (
     <main className="md:flex md:flex-col">
       <HeaderNavigation />
@@ -20,11 +21,10 @@ export default function Home() {
       </div>
       <LatestProducts />
 
-      <DealBanner />
+      <DealBanner yearEnd={2024} monthEnd={6} dayEnd={30} />
 
       {/* List brand */}
       <ListBrand />
-   
     </main>
   );
 }

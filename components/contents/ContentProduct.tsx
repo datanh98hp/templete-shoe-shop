@@ -6,6 +6,7 @@ import ReviewProductContainer from "@/components/contents/Product/ReviewProductC
 import { BiHeart } from "react-icons/bi";
 import { PromotionCategory, Variations } from "@/libs/types";
 import { MdWhatshot } from "react-icons/md";
+import { IoIosStar } from "react-icons/io";
 
 interface ContentProductProps {
   name: string;
@@ -17,6 +18,7 @@ interface ContentProductProps {
   discount: number | null;
   rating?: number;
   status: number; //0: out of stock  | 1: stocking
+  des?: string;
 }
 
 export default function ContentProduct({
@@ -29,11 +31,14 @@ export default function ContentProduct({
   discount,
   rating,
   status,
+  des,
 }: ContentProductProps) {
   const [quantity, setQuantity] = useState(1);
   return (
     <div className=" ">
-      <p className="text-2xl font-semibold">{name}</p>
+      <div className="flex justify-between">
+        <p className="text-2xl font-semibold">{name}</p>
+      </div>
       <p className="font-bold text-xl text-orange-500">${price}</p>
       <div className="py-4 text-sm">
         <p>
@@ -49,11 +54,18 @@ export default function ContentProduct({
         </p>
       </div>
       <div className="h-[0.01rem] rounded-sm w-full bg-gray-300 " />
-      <p className="py-4 text-sm text-gray-400">
+      {/* <p className="py-4 text-sm text-gray-400">
         Mill Oil is an innovative oil filled radiator with the most modern
         technology. If you are looking for something that can make your interior
         look awesome, and at the same time give you the pleasant warm feeling
         during the winter.
+      </p> */}
+      <p className="text-2xl font-semibold mr-16 flex gap-1 my-4">
+        {Array(rating)
+          .fill(0)
+          .map((_, i) => (
+            <IoIosStar key={i} color="orange" size={20} />
+          ))}
       </p>
       {promotion_category && promotion_category?.promotion && (
         <div className="flex">
@@ -105,24 +117,30 @@ export default function ContentProduct({
   );
 }
 
-export function TabDescriptionProduct() {
+export function TabDescriptionProduct({
+  description,
+  specification,
+}: {
+  description?: string;
+  specification?: string;
+}) {
   const [activeTab, setActiveTab] = useState("Specification");
 
   let listTabs = [
     {
       id: 1,
       title: "Description",
-      content: () => <div>Description content</div>,
+      // content: () => <div>{description}</div>,
     },
-    {
-      id: 2,
-      title: "Specification",
-      content: () => <div>Content Specification</div>,
-    },
+    // {
+    //   id: 2,
+    //   title: "Specification",
+    //   // content: () => <div>Content Specification</div>,
+    // },
     {
       id: 3,
       title: "Review",
-      content: () => <ReviewProductContainer></ReviewProductContainer>,
+      // content: () => <ReviewProductContainer></ReviewProductContainer>,
     },
   ];
 
@@ -145,14 +163,20 @@ export function TabDescriptionProduct() {
         ))}
       </div>
 
-      {listTabs.map((tab) => (
-        <div
-          className={clsx("", activeTab === tab.title ? "block" : "hidden")}
-          key={tab.id}
-        >
-          {tab.content()}
-        </div>
-      ))}
+      <div
+        className={clsx("", activeTab === "Description" ? "block" : "hidden")}
+        dangerouslySetInnerHTML={{ __html: description || "" }}
+      >
+     
+      </div>
+      {/* <div
+        className={clsx("", activeTab === "Specification" ? "block" : "hidden")}
+      >
+        Specification
+      </div> */}
+      <div className={clsx("", activeTab === "Review" ? "block" : "hidden")}>
+        <ReviewProductContainer></ReviewProductContainer>
+      </div>
     </div>
   );
 }

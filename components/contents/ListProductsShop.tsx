@@ -4,6 +4,8 @@ import useCallApi from "@/libs/api/useCallApi";
 import { ProductType, ProductItems } from "@/libs/types";
 import { useCartStore } from "@/store/cart.store";
 import { useFilterStore } from "@/store/filter-product.store";
+import { VscLoading } from "react-icons/vsc";
+
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
@@ -39,13 +41,13 @@ export default function ListProductsShop() {
     sortBy,
     product_cate_id: Number(product_cate_id),
   };
-  useEffect(() => {
-    //
-    const oldSearchParams = window.localStorage.getItem("searchParams");
-    oldParams = JSON.parse(oldSearchParams || "{}");
-    // console.log("searchParamsObjFromLocal", oldParams);
-    // console.log("searchParamsObj", currentSearchParams);
-  }, []);
+  // useEffect(() => {
+  //   //
+  //   // const oldSearchParams = window.localStorage.getItem("searchParams");
+  //   // oldParams = JSON.parse(oldSearchParams || "{}");
+  //   // console.log("searchParamsObjFromLocal", oldParams);
+  //   // console.log("searchParamsObj", currentSearchParams);
+  // }, []);
 
   const { data, error, isLoading } = useSWR(
     `/product?page=${page}&items_per_page=${
@@ -55,9 +57,10 @@ export default function ListProductsShop() {
     }`,
     {
       revalidateOnFocus: false,
-      dedupingInterval: 10000,
+      dedupingInterval: 5000,
+    
       loadingTimeout: 5000,
-      // refreshInterval: 1000,
+      //refreshInterval: 15000,
     }
   );
   let list = data?.data.data || [];
@@ -67,7 +70,7 @@ export default function ListProductsShop() {
   const { total, currentPage, nextPage, previousPage, lastPage } =
     data?.data || {};
   /// console.log("other data ", data?.data);
-  // const pageCount = total / Number(items_per_page);
+  const pageCount = total / Number(items_per_page);
   // const { cart, addToCart } = useCartStore((state: any) => ({
   //   cart: state.cart,
   //   addToCart: state.addToCart,
@@ -80,9 +83,6 @@ export default function ListProductsShop() {
   }));
 
   const handlePageClick = (event: any) => {
-    // console.log(
-    //   `User requested page number ${event.selected}, which is offset ${page}`
-    // );
     router.push(
       `/shop?page=${event.selected + 1}&items_per_page=${
         items_per_page || ""
@@ -95,7 +95,8 @@ export default function ListProductsShop() {
   return (
     <div className="w-full">
       {isLoading && (
-        <div className="w-full h-full h-50 w-50 flex justify-center ">
+        <div className="w-full h-full h-50 w-50 flex justify-center mt-4">
+          <VscLoading className="animate-spin mx-4" lightingColor={"#ffba00"} />
           <span>Loading...</span>
         </div>
       )}
@@ -132,7 +133,7 @@ export default function ListProductsShop() {
           nextClassName={nextPage ? "text-gray-400" : ""}
           onPageChange={handlePageClick}
           // pageRangeDisplayed={2}
-          pageCount={Math.ceil(total / Number(items_per_page))} ////
+          pageCount={lastPage} ////
           // previousClassName="underline"
           previousLinkClassName={
             Number(currentSearchParams.page) === 1 ? "text-gray-400" : ""

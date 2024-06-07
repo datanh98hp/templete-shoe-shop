@@ -15,7 +15,7 @@ export interface StoreFilterState {
 
 }
 const initiaState = {
-    keyword: "",page: 1, items_per_page: 10, sortBy: "DESC"
+    keyword: "",page: 1, items_per_page: 6, sortBy: "DESC"
 }
 export const useFilterStore = create<StoreFilterState>()((set) => ({
     state: initiaState,

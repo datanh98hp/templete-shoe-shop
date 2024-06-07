@@ -63,7 +63,7 @@ export default function HeaderNavigation() {
           </ul>
         </div>
         {/* mobile */}
-        <div className="flex block md:hidden z-1 bg-[#f8f9fa]">
+        <div className="flex md:hidden z-1 bg-[#f8f9fa]">
           <ul className="flex justify-center gap-3 mx-6">
             <li className="border p-1 rounded-full">
               <Link href={"/cart"} className="relative">

@@ -1,12 +1,32 @@
 "use client";
-import { calculateTimeLeft } from "@/libs/caculateTime";
+import { InputTime, calculateTimeLeft } from "@/libs/caculateTime";
 import React, { useEffect, useState } from "react";
 
 // ...
-export default function CountDownTime() {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+export default function CountDownTime({
+  yearEnd,
+  monthEnd,
+  dayEnd,
+}: InputTime) {
+  const [timeLeft, setTimeLeft] = useState(
+    calculateTimeLeft({
+      yearEnd,
+      monthEnd,
+      dayEnd,
+    })
+  );
   useEffect(() => {
-    setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+    setTimeout(
+      () =>
+        setTimeLeft(
+          calculateTimeLeft({
+            yearEnd,
+            monthEnd,
+            dayEnd,
+          })
+        ),
+      1000
+    );
   }, [timeLeft]);
   const [isClient, setIsClient] = useState(false);
 

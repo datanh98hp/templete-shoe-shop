@@ -21,11 +21,13 @@ async function getDetailProduct(id_product: number) {
       name: data.name,
       slug: data.slug,
       price: data.original_price,
+      description: data.description,
       items: data.items,
       category: data.category.category_name,
       variations: data.category.variations,
       promotion_category: data.category.promotion_category,
       product_images: data.product_images,
+    
     };
   } catch (error: any) {
     return {
@@ -63,13 +65,14 @@ export default async function Product({
               discount={data.promotion_category?.promotion?.discount_rate}
               status={data.items.length > 0 ? 1 : 0}
               rating={5}
+              des={data.description}
             />
           </div>
         </div>
       </div>
       {/* <div>showing detail property</div> */}
       <div className="w-full flex md:mx-4 md:my-4">
-        <TabDescriptionProduct />
+        <TabDescriptionProduct description={data.description} />
       </div>
       <DealOfTheWeek />
     </div>
