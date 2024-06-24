@@ -8,7 +8,7 @@ import EmailInputFooter from '@/components/ui/EmailInputFooter';
 
 export default function footer() {
   return (
-    <div className="footer  w-screen bottom-0 h-fit bg-[#222222]">
+    <div className="footer  w-screen bottom-0 h-fit bg-[#222222] text-black">
       <div className="md:p-24 p-3 pt-20 md:flex gap-4">
         <div className="md:w-2/6 md:my-0 my-4">
           <p className="text-white font-bold md:py-6 py-4">About Us</p>

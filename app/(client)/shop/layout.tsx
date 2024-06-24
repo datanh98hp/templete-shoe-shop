@@ -45,7 +45,7 @@ export default async function ShopLayout({
       <BannerCommon title="Shop" />
       <div className="md:flex gap-4 justify-center md:my-24 my-20 md:mx-0">
         <div className="shadow-xl md:min-w-fit h-fit md:min-h-svh">
-          <div className="py-5 pl-6 bg-[#828bb3]">Browse Categories</div>
+          <div className="py-5 pl-6 md:w-48 bg-[#828bb3] md:border-b-0 border-b-[0.01]">Browse Categories</div>
           <div className="">
             {data?.map((item: CategoryDataProp, index: number) => {
               if (item.child_categories.length > 0) {

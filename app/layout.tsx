@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SWRProvider } from "@/provider/swr-provider";
+import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,12 @@ export default function RootLayout({
   return (
     <SWRProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <ThemeProvider enableSystem={true} defaultTheme="system"
+            disableTransitionOnChange attribute="class">
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </SWRProvider>
   );

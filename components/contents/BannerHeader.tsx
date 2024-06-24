@@ -9,7 +9,7 @@ import { Navigation, Pagination } from "swiper/modules";
 export default function BannerHeader() {
 
   return (
-    <div className="w-screen h-[100vh] relative flex justify-center items-center bg-banner-image bg-center bg-cover bg-no-repeat">
+    <div className="w-screen h-[100vh] relative flex justify-center items-center bg-banner-image bg-center bg-cover bg-no-repeat text-black">
       <Swiper
         className=""
         modules={[Navigation, Pagination]}

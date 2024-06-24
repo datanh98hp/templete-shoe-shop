@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import { MdOutlinePlaylistRemove } from "react-icons/md";
 import Link from "next/link";
 import { useCartStore } from "@/store/cart.store";
+
 export default function HeaderNavigation() {
   const [isOpenMobile, setOpenMobile] = useState(false);
   const { cart } = useCartStore((state: any) => ({
     cart: state.cart,
   }));
+
   return (
     <div className="relative scroll-smooth md:scroll-auto z-10">
       <motion.nav
@@ -18,7 +20,7 @@ export default function HeaderNavigation() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.5 }}
         onScrollCapture={() => console.log("scroll-capture")}
-        className="fixed bg-[#f8f9fa] h-[5rem] w-full xl:w-[80%] xl:left-[10%]  xl:right-[10%] xl:top-10 shadow-slate-400 drop-shadow-md flex flex-row justify-between md:justify-around items-center p-4 gap-10"
+        className="fixed bg-[#f8f9fa] text-black h-[5rem] w-full xl:w-[80%] xl:left-[10%]  xl:right-[10%] xl:top-10 shadow-slate-400 drop-shadow-md flex flex-row justify-between md:justify-around items-center p-4 gap-10"
       >
         <div>
           <Image
@@ -63,7 +65,7 @@ export default function HeaderNavigation() {
           </ul>
         </div>
         {/* mobile */}
-        <div className="flex md:hidden z-1 bg-[#f8f9fa]">
+        <div className="flex md:hidden z-1 bg-[#f8f9fa] text-black">
           <ul className="flex justify-center gap-3 mx-6">
             <li className="border p-1 rounded-full">
               <Link href={"/cart"} className="relative">
@@ -92,7 +94,7 @@ export default function HeaderNavigation() {
           </button>
           {/* mobile menu content */}
           {isOpenMobile && (
-            <div className="animate-scaleX absolute top-20 left-0 w-full p-4 bg-[#f8f9fa]">
+            <div className="animate-scaleX absolute top-20 left-0 w-full p-4 bg-[#f8f9fa] text-black">
               <ul className="flex flex-col justify-center gap-7 px-2 ">
                 <li className="mx-[5px] hover:text-[#ffba00] uppercase">
                   <Link href={"/"}>Home</Link>
