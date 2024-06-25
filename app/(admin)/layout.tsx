@@ -1,3 +1,4 @@
+import AdminLayoutContent from "@/components/admin-components/common/AdminLayout";
 import { Metadata } from "next";
 import React from "react";
 export const metadata: Metadata = {
@@ -9,9 +10,13 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>
+  return <>
+    <AdminLayoutContent>
+      <div className="p-4">
+        {children}
+        {/* max each card content is w-60 */}
+      </div>
+    </AdminLayoutContent>
 
-    {children}
-
-  </div>;
+  </>;
 }

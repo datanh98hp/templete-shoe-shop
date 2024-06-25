@@ -33,14 +33,14 @@ export default function DropdownMenu({
                     isOpen ? "ext-orange-500" : "",
                     "flex justify-between items-center text-lg active:text-white duration-300 w-full"
                 )}
-            >   <div className="flex items-center text-sm gap-4 hover:text-[#e4a554]">
+            >   <div className="flex items-center text-sm gap-2 hover:text-[#e4a554]">
                     {icon}
                     <span className="mr-2">{tile}</span>
                 </div>
                
                 <span>
                     {isOpen ? (
-                        <FaAngleDown size={20} width={10} />
+                        <FaAngleDown size={20} width={5} />
                     ) : (
                         <FaAngleUp size={20} />
                     )}
@@ -50,7 +50,7 @@ export default function DropdownMenu({
             {isOpen && (
                 <div
                     className={clsx(
-                        absolute ? "absolute top-0 left-0 bg-slate-400 text-sm" : ""
+                        absolute ? "absolute top-0 left-0  text-sm" : ""
                     )}
                 >
                     {list?.map((item, i) => (
