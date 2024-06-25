@@ -120,7 +120,7 @@ export default function AdminLayoutContent({
                         </motion.div>
                     )
                 }
-                <div className="md:w-full">
+                <div className="w-full">
                     {/* Header */}
                     <div className="flex justify-between w-full h-16 bg-slate-100 dark:bg-[#191C24]">
                         {/* logo */}
