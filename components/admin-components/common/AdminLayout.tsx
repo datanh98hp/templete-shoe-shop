@@ -12,13 +12,14 @@ import DropdownMenu from "./DropdownMenu";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
+import { BsMoon, BsSun } from "react-icons/bs";
 
 export default function AdminLayoutContent({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    const [isOpenMobile, setOpenMobile] = useState(true);
+    const [isOpenMobile, setOpenMobile] = useState(false);
     const { theme, setTheme } = useTheme();
     const changeMode = () => {
         if (theme === "dark") {
@@ -49,10 +50,10 @@ export default function AdminLayoutContent({
                                             priority={true}
                                             className="rounded-full"
                                         />
-                                        
-                                        <button 
-                                        className="md:hidden"
-                                        onClick={() => setOpenMobile(!isOpenMobile)}>
+
+                                        <button
+                                            className="md:hidden"
+                                            onClick={() => setOpenMobile(!isOpenMobile)}>
                                             <BiMenuAltLeft size={20} />
                                         </button>
                                     </div>
@@ -69,8 +70,8 @@ export default function AdminLayoutContent({
                                         <span className="rounded-full  p-2">
                                             <IoSettings size={20} />
                                         </span>
-                                    )} tile="Products manage" list={[
-                                        { name: "Product info", href: "/admin/product" },
+                                    )} tile="Products   " list={[
+                                        { name: "Product info", href: "/admin/products" },
                                         { name: "Product category", href: "/admin/category" },
                                         { name: "Product Dealing", href: "/admin/dealing" },
                                     ]} absolute={false} />
@@ -147,6 +148,11 @@ export default function AdminLayoutContent({
                             <div>
                                 <BiBell size={25} />
                             </div>
+                            <button onClick={() => changeMode()}>
+                                {
+                                    theme === "light" ? <BsMoon size={25} /> : <BsSun size={25} />
+                                }
+                            </button>
                             <div>Account</div>
                         </div>
                     </div>
