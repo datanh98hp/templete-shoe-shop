@@ -20,7 +20,7 @@ export default function RootLayout({
     <SWRProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          <ThemeProvider enableSystem={true} defaultTheme="system"
+          <ThemeProvider enableSystem={true} defaultTheme="light"
             disableTransitionOnChange attribute="class">
             {children}
           </ThemeProvider>
